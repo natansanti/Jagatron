@@ -11,9 +11,9 @@ import {
 } from "discord.js";
 import { exportParticipants } from "../utils";
 
-const AUTHORIZED_IDS = process.env.AUTHORIZED_IDS?.split(',') || [];
 
 export async function handleRushadaoEvent(interaction: CommandInteraction) {
+    const AUTHORIZED_IDS = process.env.AUTHORIZED_IDS?.split(',') || [];
     if (!AUTHORIZED_IDS.includes(interaction.user.id)) {
         return await interaction.reply({ content: 'Você não tem permissão para usar este comando.', ephemeral: true });
     }
